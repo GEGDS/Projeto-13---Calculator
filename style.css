@@ -1,48 +1,117 @@
+:root {
+    --var-color1: #C3BEB9;
+    --var-color2: #8F8C91;
+    --var-color3: #7E9E4F;
+    --var-color4: #9F235A;
+    --var-color5: #242528;
+    
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    height: 15vh;
+    background-color: var(--var-color1); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: 900;
+    color: var(--var-color5);
+}
+
+/* Main */
+
+main {
+    height: 75vh;
+    padding-top: 15px;
+    background-color: lightgrey;
+}
+
+
 .calculator {
     width: 300px;
+    border: 2px solid var(--var-color5);
+    background-color: #8F8C91;
+    border-radius: 5px;
+    padding: 10px;
     margin: 0 auto;
-    text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: blue;
 }
 
 .display {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 10px;
-    padding-bottom: 15px;
-    align-items: center;
-}
-
-input {
-    width: 90%;
-    height: 50px;
-    margin: 5px;
+    background-color: var(--var-color3);
     padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
+.display input[type="text"] {
+    width: calc(100% - 40px);
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+}
+
+.display button {
+    padding: 5px 10px;
+    margin-left: 5px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    color: white;
+    background-color: var(--var-color2);
+} 
+
+.display button:hover {
+    background-color: var(--var-color1);
+}
 
 .keys {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 5px;
-
 }
 
-button {
-    width: 50px;
-    height: 50px;
+.keys .number {
+    padding: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     font-size: 20px;
-    font-weight: bold;
+    color: white;
+    background-color: var(--var-color5);
 }
 
-.row {
-    grid-row: span 2; 
-    height: 100px;
+.keys button:hover {
+    background-color: var(--var-color2);
+    padding: 15px;
+    border: 2px solid var(--var-color1);
 }
 
-.col {
-    grid-column: span 2; 
-    width: 130px;
+.keys .operator {
+    padding: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    background-color: var(--var-color4);
 }
 
+
+/* Footer */
+footer {
+    height: 10vh;
+    background-color: var(--var-color1); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    font-weight: 900;
+    color: var(--var-color5);
+}
