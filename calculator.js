@@ -1,36 +1,61 @@
 //main
-let firstInput = '';
-let secondInput = '';
+let firstNumber = '';
 let operator = '';
-
-document.addEventListener('DOMContentLoaded', function() {
-    let clear = document.querySelector('.clear');
-    let equal = document.querySelector('.equal');
-    let decimal = document.querySelector('.decimal');
-    let inputScreen = document.querySelector('.inputScreen')
-    let numbers = document.querySelectorAll('.number');
-    let operators = document.querySelectorAll('.operator');
+let secondNumber = '';
 
 
-    numbers.addEventListener('click', function() {
-        if(firstInput === '' && secondInput === '') {
-            firstNumber(e.target.textContent)
-            inputScreen.textContent = firstInput;
-        } else if (secondInput === '') {
-            secondNumber(e.target.textContent)
-            inputScreen.textContent = secondInput;
+function btnValue(value) {
+    const screen = document.querySelector('.screen');
+    screen.value += value;
+
+    if(operator !== '') {
+        secondNumber += value;
+    } else {
+        firstNumber += value
+    }
+}
+
+function clearScreen() {
+    document.querySelector('.screen').value = '';
+    firstNumber = '';
+    operator = '';
+    secondNumber = '';
+}
+
+function calculate() {
+    let result = '';
+    const screen = document.querySelector('.screen');
+
+    const num1 = parseFloat(firstNumber);
+    const num2 = parseFloat(secondNumber);
+
+    if (!isNaN(num1) && !isNaN(num2)) {
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                if (num2 !== 0) {
+                    result = num1 / num2;
+                } else {
+                    result = 'Error: Division by zero';
+                }
+                break;
+            default:
+                result = 'Error: Invalid operation';
         }
-        
-    })
+    } else {
+        result = 'Error: Invalid input';
+    }
 
-    operators.addEventListener('click', function(){
-        insertOperator(e.target.textContent)
-        inputScreen.textContent = operator;
-    })
-
-
-})
-
+    screen.value = result;
+}
 
 
 

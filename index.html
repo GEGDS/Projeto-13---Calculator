@@ -15,31 +15,31 @@
     <main>
         <div class="calculator">
             <div class="display">
-                <div class="inputScreen"></div>
-                <button class="clear">C</button>
+                <input type="text" class="screen" disabled> 
+                <button class="clear" onclick="clearScreen()">C</button>
             </div>
 
             <div class="keys">
-                <button class="number">7</button>
-                <button class="number">8</button>
-                <button class="number">9</button>
-                <button class="operator">+</button>
+                <button class="number" onclick="btnValue('7')">7</button>
+                <button class="number" onclick="btnValue('8')">8</button>
+                <button class="number" onclick="btnValue('9')">9</button>
+                <button class="operator" onclick="btnValue('+')">+</button>
 
-                <button class="number">4</button>
-                <button class="number">5</button>
-                <button class="number">6</button>
-                <button class="operator">-</button>
+                <button class="number" onclick="btnValue('4')">4</button>
+                <button class="number" onclick="btnValue('5')">5</button>
+                <button class="number" onclick="btnValue('6')">6</button>
+                <button class="operator" onclick="btnValue('-')">-</button>
 
-                <button class="number">1</button>
-                <button class="number">2</button>
-                <button class="number">3</button>
-                <button class="operator">x</button>
+                <button class="number" onclick="btnValue('1')">1</button>
+                <button class="number" onclick="btnValue('2')">2</button>
+                <button class="number" onclick="btnValue('3')">3</button>
+                <button class="operator" onclick="btnValue('*')">x</button>
 
                 
-                <button class="number">0</button>
-                <button class="number decimal">.</button>
-                <button class="operator">/</button>
-                <button class="operator equal">=</button>
+                <button class="number" onclick="btnValue('0')">0</button>
+                <button class="number decimal" onclick="decimal()">.</button>
+                <button class="operator" onclick="btnValue('/')">/</button>
+                <button class="operator equal" onclick="calculate()">=</button>
                 
             </div>
         </div>
