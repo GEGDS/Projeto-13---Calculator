@@ -8,10 +8,12 @@ function btnValue(value) {
     const screen = document.querySelector('.screen');
     screen.value += value;
 
-    if(operator !== '') {
-        secondNumber += value;
+    if ('+-*/'.includes(value)) {
+        operator = value;
+    } else if (operator === '') {
+        firstNumber += value;
     } else {
-        firstNumber += value
+        secondNumber += value;
     }
 }
 
@@ -24,8 +26,6 @@ function clearScreen() {
 
 function calculate() {
     let result = '';
-    const screen = document.querySelector('.screen');
-
     const num1 = parseFloat(firstNumber);
     const num2 = parseFloat(secondNumber);
 
@@ -54,8 +54,10 @@ function calculate() {
         result = 'Error: Invalid input';
     }
 
+    const screen = document.querySelector('.screen');
     screen.value = result;
 }
+
 
 
 
