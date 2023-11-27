@@ -6,14 +6,18 @@ let secondNumber = '';
 
 function btnValue(value) {
     const screen = document.querySelector('.screen');
-    screen.value += value;
 
     if ('+-*/'.includes(value)) {
+        screen.value += ` ${value} `;
         operator = value;
-    } else if (operator === '') {
-        firstNumber += value;
     } else {
-        secondNumber += value;
+        if (operator === '') {
+            firstNumber += value;
+            screen.value += value;
+        } else {
+            secondNumber += value;
+            screen.value += value;
+        }
     }
 }
 
@@ -22,6 +26,21 @@ function clearScreen() {
     firstNumber = '';
     operator = '';
     secondNumber = '';
+}
+
+function addDecimal() {
+    const screen = document.querySelector('.screen');
+    if (operator === '' && !firstNumber.includes('.')) {
+        screen.value += '.';
+        firstNumber += '.';
+    } else if (operator !== '' && !secondNumber.includes('.')) {
+        screen.value += '.';
+        secondNumber += '.';
+    }
+}
+
+function roundNumber(num) {
+    return Math.round(num * 1000) / 1000;
 }
 
 function calculate() {
@@ -33,6 +52,7 @@ function calculate() {
         switch (operator) {
             case '+':
                 result = num1 + num2;
+                
                 break;
             case '-':
                 result = num1 - num2;
@@ -55,14 +75,11 @@ function calculate() {
     }
 
     const screen = document.querySelector('.screen');
-    screen.value = result;
+    
+    screen.value = roundNumber(result);
 }
 
 
-
-
-
-  
 //Footer
 const dataAtual = new Date();
 const ano = dataAtual.getFullYear();
